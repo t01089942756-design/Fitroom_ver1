@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>로그인 | 핏룸 Fit Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-title="로그인" data-desc="" data-mode="login">
+
+  <!-- 헤더 · 네비게이션 (common.js가 채움) -->
+  <div id="header"></div>
+
+  <main>
+    <!-- 페이지 제목 · 위치 · 2차 메뉴 탭 (common.js가 채움) -->
+    <div id="pageHead"></div>
+
+    <section class="inner sub-wrap">
+      <div class="auth">
+        <form id="loginForm" class="auth-card" novalidate>
+          <h2>다시 오셨군요!</h2>
+          <p class="muted">로그인하면 저장한 내 방 치수로 바로 핏 체크할 수 있어요.</p>
+          <div class="field">
+            <label class="label" for="lgId">아이디</label>
+            <input type="text" id="lgId" class="input" autocomplete="username">
+          </div>
+          <div class="field">
+            <label class="label" for="lgPw">비밀번호</label>
+            <div class="pw-wrap">
+              <input type="password" id="lgPw" class="input" autocomplete="current-password">
+              <button type="button" class="pw-eye" data-eye="lgPw">보기</button>
+            </div>
+          </div>
+          <label class="check"><input type="checkbox" id="lgSave"><span>아이디 저장</span></label>
+          <p class="form-err" id="lgErr"></p>
+          <button type="submit" class="btn btn-oak full">로그인</button>
+          <p class="auth-links"><a href="find.html">아이디·비밀번호 찾기</a><span>|</span><a href="join.html">회원가입</a></p>
+          <div class="demo-box">
+            <p><b>체험용 계정</b> 아이디 <code>fitroom</code> · 비밀번호 <code>fit1234!</code></p>
+            <button type="button" class="link-btn" id="lgDemo">체험용 계정으로 채우기</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 (common.js가 채움) -->
+  <div id="footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/member.js"></script>
+</body>
+</html>

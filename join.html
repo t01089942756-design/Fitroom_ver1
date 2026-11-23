@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입 | 핏룸 Fit Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-title="회원가입" data-desc="" data-mode="join">
+
+  <!-- 헤더 · 네비게이션 (common.js가 채움) -->
+  <div id="header"></div>
+
+  <main>
+    <!-- 페이지 제목 · 위치 · 2차 메뉴 탭 (common.js가 채움) -->
+    <div id="pageHead"></div>
+
+    <section class="inner sub-wrap">
+      <div class="auth wide">
+        <form id="joinForm" class="auth-card" novalidate>
+          <ol class="join-steps"><li class="on">약관 동의</li><li class="on">정보 입력</li><li>가입 완료</li></ol>
+
+          <!-- 약관 동의 -->
+          <div class="terms">
+            <label class="check all"><input type="checkbox" id="agAll"><span>전체 동의</span></label>
+            <label class="check"><input type="checkbox" class="ag" data-need="1"><span><em>[필수]</em> 이용약관 동의</span></label>
+            <label class="check"><input type="checkbox" class="ag" data-need="1"><span><em>[필수]</em> 개인정보 수집·이용 동의</span></label>
+            <label class="check"><input type="checkbox" class="ag" id="agMkt"><span>[선택] 이벤트·할인 소식 받기</span></label>
+          </div>
+
+          <!-- 정보 입력 -->
+          <div class="field">
+            <label class="label" for="jName">이름 <em>*</em></label>
+            <input type="text" id="jName" class="input" maxlength="10">
+            <p class="hint" data-for="jName"></p>
+          </div>
+          <div class="field">
+            <label class="label" for="jId">아이디 <em>*</em></label>
+            <div class="in-btn">
+              <input type="text" id="jId" class="input" maxlength="12" placeholder="영문 소문자, 숫자 4~12자">
+              <button type="button" class="btn btn-line btn-sm" id="jIdCheck">중복 확인</button>
+            </div>
+            <p class="hint" data-for="jId"></p>
+          </div>
+          <div class="field">
+            <label class="label" for="jPw">비밀번호 <em>*</em></label>
+            <div class="pw-wrap">
+              <input type="password" id="jPw" class="input" placeholder="영문, 숫자, 특수문자 포함 8자 이상">
+              <button type="button" class="pw-eye" data-eye="jPw">보기</button>
+            </div>
+            <div class="pw-meter"><i id="jPwBar"></i></div>
+            <p class="hint" data-for="jPw"></p>
+          </div>
+          <div class="field">
+            <label class="label" for="jPw2">비밀번호 확인 <em>*</em></label>
+            <input type="password" id="jPw2" class="input">
+            <p class="hint" data-for="jPw2"></p>
+          </div>
+          <div class="field">
+            <label class="label" for="jEmail">이메일 <em>*</em></label>
+            <input type="email" id="jEmail" class="input" placeholder="example@email.com">
+            <p class="hint" data-for="jEmail"></p>
+          </div>
+          <div class="field">
+            <label class="label" for="jPhone">휴대폰 번호 <em>*</em></label>
+            <input type="tel" id="jPhone" class="input" maxlength="13" placeholder="숫자만 입력하면 - 가 자동으로 들어가요">
+            <p class="hint" data-for="jPhone"></p>
+          </div>
+
+          <!-- 선택: 내 방 정보 -->
+          <div class="opt-box">
+            <p class="opt-title">내 방 정보 <small>선택 · 입력하면 핏 체크에 자동으로 채워져요</small></p>
+            <div class="radio-row">
+              <label class="radio"><input type="radio" name="jRoom" value="oneroom"><span>원룸</span></label>
+              <label class="radio"><input type="radio" name="jRoom" value="officetel"><span>오피스텔</span></label>
+              <label class="radio"><input type="radio" name="jRoom" value="tworoom"><span>투룸</span></label>
+            </div>
+            <div class="size-in">
+              <div class="unit"><input type="number" id="jW" class="input" placeholder="방 가로"><i>cm</i></div>
+              <span>×</span>
+              <div class="unit"><input type="number" id="jD" class="input" placeholder="방 세로"><i>cm</i></div>
+            </div>
+          </div>
+
+          <p class="form-err" id="jErr"></p>
+          <button type="submit" class="btn btn-oak full">가입하기</button>
+          <p class="auth-links">이미 회원이신가요? <a href="login.html">로그인</a></p>
+        </form>
+
+        <!-- 가입 완료 -->
+        <div class="auth-card done" id="joinDone" hidden>
+          <div class="done-ico">✓</div>
+          <h2><span id="doneName"></span>님, 환영해요!</h2>
+          <p class="muted">회원가입이 끝났어요. 자동으로 로그인되었어요.</p>
+          <div class="form-btns center">
+            <a href="fitcheck.html" class="btn btn-oak">핏 체크 하러 가기</a>
+            <a href="index.html" class="btn btn-line">메인으로</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 (common.js가 채움) -->
+  <div id="footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/member.js"></script>
+</body>
+</html>

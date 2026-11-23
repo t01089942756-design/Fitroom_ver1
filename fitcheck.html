@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>치수 입력·결과 | 핏룸 Fit Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-title="치수 입력·결과" data-desc="공간 치수를 넣으면 들어가는 가구만 보여드려요.">
+
+  <!-- 헤더 · 네비게이션 (common.js가 채움) -->
+  <div id="header"></div>
+
+  <main>
+    <!-- 페이지 제목 · 위치 · 2차 메뉴 탭 (common.js가 채움) -->
+    <div id="pageHead"></div>
+
+    <section class="inner sub-wrap">
+
+      <!-- 치수 입력 -->
+      <form id="fcForm" class="fc-form" novalidate>
+        <div class="fc-fields">
+          <label class="field">
+            <span class="label">가로 <em>*</em></span>
+            <div class="unit"><input type="number" id="cW" class="input" min="1" max="999" placeholder="예: 120"><i>cm</i></div>
+          </label>
+          <label class="field">
+            <span class="label">세로(깊이) <em>*</em></span>
+            <div class="unit"><input type="number" id="cD" class="input" min="1" max="999" placeholder="예: 60"><i>cm</i></div>
+          </label>
+          <label class="field">
+            <span class="label">높이 <small>선택</small></span>
+            <div class="unit"><input type="number" id="cH" class="input" min="1" max="999" placeholder="비워도 돼요"><i>cm</i></div>
+          </label>
+          <label class="field">
+            <span class="label">가구 종류</span>
+            <select id="cType" class="select">
+              <option value="all">전체</option>
+              <option value="bed">침대·소파</option>
+              <option value="desk">책상·의자</option>
+              <option value="storage">수납·선반</option>
+              <option value="table">테이블</option>
+            </select>
+          </label>
+        </div>
+        <div class="fc-bottom">
+          <div class="fc-margin">
+            <span class="label">여유 공간</span>
+            <label class="radio"><input type="radio" name="margin" value="0" checked><span>딱 맞게</span></label>
+            <label class="radio"><input type="radio" name="margin" value="5"><span>여유 있게 (사방 5cm)</span></label>
+          </div>
+          <button type="submit" class="btn btn-oak">들어가는 가구 찾기</button>
+        </div>
+      </form>
+
+      <!-- 처음 화면: 재는 방법 안내 -->
+      <div id="fcGuide" class="fc-guide">
+        <h2 class="h-sub">이렇게 재 주세요</h2>
+        <ol class="steps">
+          <li><b>1</b><p class="st-t">가로</p><p>가구를 놓을 벽을 따라 잰 길이</p></li>
+          <li><b>2</b><p class="st-t">세로(깊이)</p><p>벽에서 방 안쪽으로 나오는 길이</p></li>
+          <li><b>3</b><p class="st-t">높이</p><p>창문 아래, 선반 밑처럼 위가 막힌 자리라면 꼭 재기</p></li>
+          <li><b>4</b><p class="st-t">튀어나온 곳 빼기</p><p>걸레받이, 콘센트, 창틀만큼 빼고 입력</p></li>
+        </ol>
+      </div>
+
+      <!-- 결과 -->
+      <div id="fcResult" hidden>
+        <div class="fc-summary" id="fcSummary"></div>
+        <div class="fit-list" id="fcList"></div>
+        <div id="fcNear" hidden>
+          <h3 class="h-sub">조금만 더 넓으면 들어가는 가구</h3>
+          <div class="fit-list" id="fcNearList"></div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- 푸터 (common.js가 채움) -->
+  <div id="footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/fitcheck.js"></script>
+</body>
+</html>

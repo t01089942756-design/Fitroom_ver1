@@ -1,0 +1,187 @@
+/* =========================================================
+   핏룸 메인페이지 전용 스타일 (main.css)
+   ========================================================= */
+
+/* ---------- ② 메인 배너 ---------- */
+.hero { display: grid; grid-template-columns: 1fr 50%; min-height: 720px; background: var(--cream); }
+.hero-txt { display: flex; flex-direction: column; justify-content: center; padding: 60px 70px 160px calc(50vw - 600px); }
+.hero h1 { font-family: var(--serif-ko); font-size: 54px; font-weight: 500; line-height: 1.3; letter-spacing: -1.5px; color: var(--deep); margin: 18px 0 10px; }
+.hero-en { font-family: var(--serif); font-size: 30px; color: var(--gray); }
+.hero-en em { color: var(--oak); }
+.hero .lead { font-size: 18px; color: #4A443E; font-weight: 400; margin: 26px 0 38px; line-height: 1.8; }
+.hero-btns { display: flex; gap: 10px; }
+.hero-photo { position: relative; overflow: hidden; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.hero-tag {
+  position: absolute; right: 40px; bottom: 150px; width: 250px; padding: 22px 24px;
+  background: rgba(251, 249, 245, .92); backdrop-filter: blur(6px); font-size: 16px; line-height: 1.6;
+}
+.hero-tag .sec-eyebrow { font-size: 12px; margin-bottom: 6px; }
+.hero-tag a { display: inline-block; margin-top: 10px; font-size: 14px; color: var(--oak); }
+
+/* ---------- 핏 체크 (배너에 겹친 상자) ---------- */
+.fit {
+  position: relative; z-index: 3; margin-top: -110px;
+  display: grid; grid-template-columns: 1fr 330px; gap: 50px; align-items: center;
+  background: var(--white); padding: 44px 50px; box-shadow: 0 30px 70px rgba(46, 42, 38, .10);
+  scroll-margin-top: 110px;
+}
+.fit-title { font-family: var(--serif-ko); font-size: 25px; font-weight: 500; margin: 6px 0 22px; }
+.fit-form { display: flex; align-items: flex-end; gap: 10px; }
+.fit-field { display: flex; flex-direction: column; flex: 1; position: relative; }
+.fit-field > span { font-size: 13.5px; letter-spacing: .04em; color: var(--gray); margin-bottom: 6px; }
+.fit-field small { color: #B4ABA0; }
+.fit-field input, .fit-field select {
+  height: 54px; border: none; border-bottom: 1px solid var(--ink); border-radius: 0;
+  padding: 0 34px 0 2px; font-size: 22px; font-weight: 500; background: transparent; width: 100%;
+  font-family: var(--serif); -moz-appearance: textfield;
+}
+.fit-field input::placeholder { color: #CFC6BA; }
+.fit-field input::-webkit-outer-spin-button, .fit-field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.fit-field select { font-family: var(--sans); font-size: 16px; padding-right: 0; cursor: pointer; }
+.fit-field input:focus, .fit-field select:focus { outline: none; border-color: var(--oak); }
+.fit-field em { position: absolute; right: 2px; bottom: 16px; font-style: normal; font-size: 14px; color: var(--gray); }
+.fit-select { flex: 1.2; }
+.fit-go { height: 54px; padding: 0 34px; margin-left: 8px; }
+.fit-live { margin-top: 16px; font-size: 15.5px; color: var(--gray); min-height: 24px; }
+.fit-live.ok { color: var(--green); }
+.fit-live.ok b { color: var(--oak); font-family: var(--serif); font-size: 21px; }
+.fit-live.none { color: #A9553B; }
+.presets { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 14px; }
+.presets span { color: var(--gray); margin-right: 6px; }
+.presets button { border: 1px solid var(--line); background: transparent; padding: 6px 14px; font-size: 13.5px; transition: .2s; }
+.presets button:hover { border-color: var(--ink); }
+
+.hero-art { text-align: center; }
+.hero-art svg { width: 100%; }
+.plan-txt { font-size: 13px; fill: #9A8F83; }
+.plan-dim { font-size: 12px; fill: var(--oak); }
+.spot { fill: rgba(176, 122, 74, .06); stroke: #C2B8AC; stroke-width: 1.6; stroke-dasharray: 6 5; transition: x .3s, width .3s, height .3s; }
+.spot.on { fill: rgba(176, 122, 74, .18); stroke: var(--oak); }
+.spot.over { fill: rgba(169, 85, 59, .14); stroke: #A9553B; }
+.spot-label { font-size: 14px; font-weight: 700; fill: var(--oak); }
+.hero-art-cap { font-size: 12px; color: var(--gray); }
+
+/* ---------- 서비스 띠 ---------- */
+.services { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 70px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.services > div { display: flex; align-items: center; gap: 16px; padding: 28px 24px; }
+.services > div + div { border-left: 1px solid var(--line); }
+.services svg { width: 32px; height: 32px; flex-shrink: 0; fill: none; stroke: var(--green); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.services p { font-size: 14px; color: var(--gray); line-height: 1.5; }
+.services b { display: block; color: var(--ink); font-weight: 500; font-size: 15.5px; }
+
+/* ---------- ⑤ 카테고리 (동그란 사진 자리) ---------- */
+.cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+.cat { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.cat-circle { width: 230px; height: 230px; border-radius: 50%; background: var(--stone); display: flex; align-items: center; justify-content: center; color: #9B7552; transition: .4s; }
+.cat-circle .shape { width: 60%; }
+.cat-circle .shape g { stroke-width: 1.5; }
+.cat:hover .cat-circle { background: var(--oak-l); transform: translateY(-6px); }
+.cat-name { font-family: var(--serif-ko); font-size: 19px; font-weight: 500; }
+.cat-count { font-size: 13.5px; color: var(--gray); letter-spacing: .06em; margin-top: -12px; }
+
+/* ---------- ③ 브랜드 이야기 ---------- */
+.story { display: grid; grid-template-columns: 50% 1fr; align-items: center; }
+.story-photo { height: 700px; overflow: hidden; }
+.story-photo img { width: 100%; height: 100%; object-fit: cover; }
+.story-txt { padding: 0 calc(50vw - 600px) 0 90px; }
+.story-list { list-style: none; margin: 40px 0 40px; border-top: 1px solid var(--line); }
+.story-list li { display: flex; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.story-list span { font-family: var(--serif); font-size: 30px; color: var(--oak); line-height: 1; }
+.story-list h3 { font-family: var(--serif-ko); font-size: 20px; font-weight: 500; margin-bottom: 4px; }
+.story-list p { color: var(--gray); font-size: 16px; }
+
+/* ---------- ④ 공간별 추천 ---------- */
+.rooms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.room { display: flex; flex-direction: column; background: var(--white); }
+.room-photo { position: relative; height: 380px; overflow: hidden; }
+.room-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s; }
+.room:hover .room-photo img { transform: scale(1.05); }
+.room-photo .room-plan { position: absolute; right: 16px; bottom: 16px; width: 96px; background: rgba(51, 61, 46, .85); padding: 10px; }
+.room-plan rect, .room-plan path { fill: none; stroke: #E6E9E2; stroke-width: 2.4; }
+.room-plan .f { fill: var(--oak); stroke: none; opacity: .9; }
+.room-info { padding: 26px 26px 28px; }
+.room-size { font-size: 13px; color: var(--oak); letter-spacing: .12em; }
+.room-info h3 { font-family: var(--serif-ko); font-size: 24px; font-weight: 500; }
+.room-desc { color: var(--gray); font-size: 15px; margin-bottom: 14px; }
+.room-info li { display: flex; justify-content: space-between; font-size: 15px; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.room-info li span { color: var(--green); }
+.room-total { display: flex; justify-content: space-between; align-items: baseline; margin-top: 14px; font-size: 14px; color: var(--gray); }
+.room-total b { color: var(--ink); font-size: 18px; font-weight: 500; }
+
+/* ---------- 기획 배너 ---------- */
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.duo-card {
+  position: relative; height: 440px; padding: 50px; display: flex; flex-direction: column; justify-content: flex-end;
+  background: center / cover no-repeat; color: var(--white); overflow: hidden;
+}
+.duo-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(36, 42, 32, .72), rgba(36, 42, 32, .05) 70%); transition: .4s; }
+.duo-card:hover::before { background: linear-gradient(to top, rgba(36, 42, 32, .82), rgba(36, 42, 32, .15) 80%); }
+.duo-card > * { position: relative; }
+.duo-card .sec-eyebrow { color: var(--oak-l); }
+.duo-card h3 { font-family: var(--serif-ko); font-size: 32px; font-weight: 500; line-height: 1.35; margin: 8px 0 18px; }
+.duo-card .arrow { font-size: 15px; letter-spacing: .04em; }
+
+/* ---------- ⑦ 리뷰 ---------- */
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.review { display: flex; flex-direction: column; padding: 34px 32px; background: var(--white); border: 1px solid var(--line); }
+.stars { color: var(--oak); letter-spacing: 2px; font-size: 16px; }
+.review-txt { font-family: var(--serif-ko); font-size: 17px; line-height: 1.75; margin: 16px 0 22px; flex: 1; }
+.review-room { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 14px; font-size: 14px; }
+.review-room span { color: var(--gray); }
+.review-room b { color: var(--green); font-weight: 500; }
+.review-foot { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--stone); color: var(--oak); display: flex; align-items: center; justify-content: center; font-family: var(--serif-ko); }
+.who { font-size: 14px; color: var(--gray); }
+.what { font-size: 15px; font-weight: 500; }
+.what:hover { color: var(--oak); }
+
+/* ---------- ⑧ 방명록 ---------- */
+.guest { display: grid; grid-template-columns: 1fr 440px; background: var(--white); border: 1px solid var(--line); }
+.guest-list { padding: 50px 54px; }
+.guest-list .sec-title { margin-bottom: 20px; }
+.guest-list li { display: flex; gap: 20px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+.guest-list li:last-child { border-bottom: none; }
+.g-name { flex: 0 0 70px; font-weight: 500; color: var(--green); }
+.g-text { flex: 1; }
+.g-date { font-size: 13.5px; color: var(--gray); }
+.guest-cta { background: var(--deep); color: #C9CEC0; padding: 50px 46px; display: flex; flex-direction: column; justify-content: center; }
+.guest-q { font-family: var(--serif-ko); font-size: 22px; color: var(--white); line-height: 1.6; }
+.guest-count { margin: 12px 0 30px; font-size: 14.5px; }
+.guest-count b { color: var(--oak-l); font-family: var(--serif); font-size: 22px; }
+.guest-btns { display: flex; gap: 10px; }
+
+/* ---------- 프리텐다드 제목 굵기 ---------- */
+.hero h1 { font-weight: 300; letter-spacing: -.04em; }
+.hero h1 b { font-weight: 600; }
+.fit-title, .story-list h3, .room-info h3, .cat-name, .duo-card h3, .guest-q { font-weight: 400; letter-spacing: -.02em; }
+.duo-card h3 { font-weight: 300; }
+.review-txt { font-weight: 300; font-size: 17px; }
+
+/* 가독성 */
+.hero h1 { font-weight: 400; }
+.story-list p, .room-desc, .services p { color: #4A443E; }
+.duo-card h3 { font-weight: 400; }
+.fit-field input::placeholder { color: #B5ACA1; }
+/* 평면도 안 글씨 (그림이 작아서 크게) */
+.plan-txt { font-size: 18px; fill: #6E655C; }
+.plan-dim { font-size: 16px; }
+.spot-label { font-size: 19px; }
+.hero-art-cap { font-size: 13.5px; color: var(--gray); }
+
+/* 카테고리 사진 */
+.cat-circle { overflow: hidden; }
+.cat-circle img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.cat:hover .cat-circle img { transform: scale(1.06); }
+.cat:hover .cat-circle { background: var(--stone); }
+
+/* 공간별 추천 상품 목록의 작은 사진 */
+.room-info li { align-items: center; gap: 10px; }
+.room-info li em { flex: 1; font-style: normal; }
+.mini { width: 34px; height: 34px; flex-shrink: 0; overflow: hidden; background: var(--stone); display: flex; align-items: center; justify-content: center; color: #9B7552; }
+.mini img { width: 100%; height: 100%; object-fit: cover; }
+.mini .shape { width: 80%; }
+
+/* 리뷰 카드의 상품 사진 */
+.rv-thumb { width: 48px; height: 48px; flex-shrink: 0; overflow: hidden; background: var(--stone); }
+.rv-thumb img { width: 100%; height: 100%; object-fit: cover; }

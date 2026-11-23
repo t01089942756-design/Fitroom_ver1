@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>마이페이지 | 핏룸 Fit Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-title="마이페이지" data-desc="">
+
+  <!-- 헤더 · 네비게이션 (common.js가 채움) -->
+  <div id="header"></div>
+
+  <main>
+    <!-- 페이지 제목 · 위치 · 2차 메뉴 탭 (common.js가 채움) -->
+    <div id="pageHead"></div>
+
+    <section class="inner sub-wrap mypage">
+      <!-- 회원 요약 -->
+      <div class="my-top" id="myTop"></div>
+
+      <div class="my-layout">
+        <!-- 왼쪽 메뉴 -->
+        <nav class="my-menu" id="myMenu">
+          <a href="#orders" data-tab="orders">주문 내역</a>
+          <a href="#room" data-tab="room">내 방 치수</a>
+          <a href="#wish" data-tab="wish">찜 목록</a>
+          <a href="#reviews" data-tab="reviews">내 리뷰</a>
+          <a href="#qna" data-tab="qna">1:1 문의</a>
+          <a href="#profile" data-tab="profile">정보 수정</a>
+        </nav>
+        <!-- 오른쪽 내용 (mypage.js가 채움) -->
+        <div class="my-body" id="myBody"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 (common.js가 채움) -->
+  <div id="footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/mypage.js"></script>
+</body>
+</html>

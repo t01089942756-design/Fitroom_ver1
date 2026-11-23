@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>아이디·비밀번호 찾기 | 핏룸 Fit Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-title="아이디·비밀번호 찾기" data-desc="" data-mode="find">
+
+  <!-- 헤더 · 네비게이션 (common.js가 채움) -->
+  <div id="header"></div>
+
+  <main>
+    <!-- 페이지 제목 · 위치 · 2차 메뉴 탭 (common.js가 채움) -->
+    <div id="pageHead"></div>
+
+    <section class="inner sub-wrap">
+      <div class="auth">
+        <div class="auth-card">
+          <div class="tabs2" id="findTabs">
+            <button type="button" class="on" data-tab="id">아이디 찾기</button>
+            <button type="button" data-tab="pw">비밀번호 재설정</button>
+          </div>
+
+          <form id="findId" class="find-pane" novalidate>
+            <p class="muted">가입할 때 입력한 이름과 이메일을 적어 주세요.</p>
+            <div class="field"><label class="label" for="fiName">이름</label><input type="text" id="fiName" class="input"></div>
+            <div class="field"><label class="label" for="fiEmail">이메일</label><input type="email" id="fiEmail" class="input"></div>
+            <p class="form-err" id="fiErr"></p>
+            <div class="find-result" id="fiResult" hidden></div>
+            <button type="submit" class="btn btn-oak full">아이디 찾기</button>
+          </form>
+
+          <form id="findPw" class="find-pane" novalidate hidden>
+            <p class="muted">아이디와 이메일이 맞으면 새 비밀번호를 정할 수 있어요.</p>
+            <div class="field"><label class="label" for="fpId">아이디</label><input type="text" id="fpId" class="input"></div>
+            <div class="field"><label class="label" for="fpEmail">이메일</label><input type="email" id="fpEmail" class="input"></div>
+            <div id="fpNew" hidden>
+              <div class="field"><label class="label" for="fpPw">새 비밀번호</label><input type="password" id="fpPw" class="input" placeholder="영문, 숫자, 특수문자 포함 8자 이상"></div>
+              <div class="field"><label class="label" for="fpPw2">새 비밀번호 확인</label><input type="password" id="fpPw2" class="input"></div>
+            </div>
+            <p class="form-err" id="fpErr"></p>
+            <button type="submit" class="btn btn-oak full" id="fpBtn">확인</button>
+          </form>
+
+          <p class="auth-links"><a href="login.html">로그인</a><span>|</span><a href="join.html">회원가입</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 (common.js가 채움) -->
+  <div id="footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/member.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>1:1 문의 | 핏룸 Fit Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-title="1:1 문의" data-desc="궁금한 점을 남겨 주시면 답변드려요." data-mode="qna">
+
+  <!-- 헤더 · 네비게이션 (common.js가 채움) -->
+  <div id="header"></div>
+
+  <main>
+    <!-- 페이지 제목 · 위치 · 2차 메뉴 탭 (common.js가 채움) -->
+    <div id="pageHead"></div>
+
+    <section class="inner sub-wrap qna">
+      <form id="qnaForm" class="form-card" novalidate>
+        <h2 class="h-sub">문의 남기기</h2>
+        <div class="field-row">
+          <div class="field">
+            <label class="label" for="qType">문의 유형 <em>*</em></label>
+            <select id="qType" class="select">
+              <option value="">선택해 주세요</option>
+              <option>핏 체크·치수</option>
+              <option>상품</option>
+              <option>배송</option>
+              <option>반품·교환</option>
+              <option>회원·기타</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="label" for="qOrder">관련 주문 <small>선택</small></label>
+            <select id="qOrder" class="select"><option value="">주문 없음</option></select>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="qTitle">제목 <em>*</em></label>
+          <input type="text" id="qTitle" class="input" maxlength="40" placeholder="40자 이내">
+        </div>
+        <div class="field">
+          <label class="label" for="qBody">내용 <em>*</em></label>
+          <textarea id="qBody" class="textarea" rows="7" maxlength="1000" placeholder="치수 관련 문의라면 공간의 가로·세로·높이를 함께 적어 주세요."></textarea>
+          <p class="counter"><span id="qLen">0</span> / 1000</p>
+        </div>
+        <label class="check"><input type="checkbox" id="qMail" checked><span>답변이 달리면 이메일로 알려 주세요</span></label>
+        <p class="form-err" id="qErr"></p>
+        <div class="form-btns">
+          <button type="submit" class="btn btn-oak">문의 등록</button>
+        </div>
+      </form>
+
+      <div class="qna-mine">
+        <h2 class="h-sub">내 문의 내역</h2>
+        <ul class="acc" id="qnaList"></ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 (common.js가 채움) -->
+  <div id="footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/support.js"></script>
+</body>
+</html>

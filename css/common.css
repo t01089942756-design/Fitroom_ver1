@@ -1,0 +1,240 @@
+/* =========================================================
+   핏룸 공통 스타일 (common.css)
+   - 모든 페이지에서 같이 쓰는 색, 글꼴, 헤더, 푸터, 버튼, 상품 카드
+   - 디자인 컨셉: 따뜻한 원목 + 올리브 그린, 넓은 여백과 명조 제목의 차분한 고급스러움
+   - PC 전용 (기준 1920px, 콘텐츠 너비 1200px)
+   ========================================================= */
+
+:root {
+  /* 기획서 컬러 */
+  --green: #4F5D47;      /* 메인 올리브 그린 */
+  --oak: #B07A4A;        /* 포인트 오크 */
+  --cream: #F7F1E8;      /* 배경 크림 */
+  --oak-l: #E9D9C4;      /* 라이트 우드 */
+  --ink: #2E2A26;        /* 글자 다크 브라운 */
+
+  /* 깊이를 더하는 보조 톤 */
+  --deep: #333D2E;       /* 짙은 올리브 (상단 띠, 푸터) */
+  --green-d: #3E4A38;
+  --green-l: #E3E7DC;
+  --oak-d: #94633A;
+  --stone: #EEE8DF;      /* 상품 사진 배경 */
+  --ivory: #FBF9F5;
+  --gray: #645C54;        /* 보조 글자 (대비를 높여 진하게) */
+  --line: #DDD4C8;
+  --white: #FFFFFF;
+
+  --serif: "Cormorant Garamond", "Pretendard", serif;   /* 영문 로고 · 숫자 */
+  --serif-ko: "Pretendard", "Noto Sans KR", sans-serif;   /* 한글 제목 */
+  --sans: "Pretendard", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --r: 2px;              /* 모서리: 거의 각지게 */
+  --shadow: 0 20px 50px rgba(46, 42, 38, .08);
+  --radius: 2px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  min-width: 1200px;                      /* PC 전용 */
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--ivory);
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+::selection { background: var(--oak-l); }
+
+.inner { width: 1200px; margin: 0 auto; }
+
+/* ---------- 버튼 ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 52px; padding: 0 30px; border-radius: var(--r);
+  font-size: 16px; font-weight: 500; letter-spacing: .04em;
+  border: 1px solid transparent; transition: .25s;
+}
+.btn-oak { background: var(--oak); color: var(--white); }
+.btn-oak:hover { background: var(--oak-d); }
+.btn-green { background: var(--deep); color: var(--white); }
+.btn-green:hover { background: var(--green); }
+.btn-line { border-color: var(--ink); background: transparent; }
+.btn-line:hover { background: var(--ink); color: var(--white); }
+.btn-ghost { border-color: rgba(255, 255, 255, .6); color: var(--white); }
+.btn-ghost:hover { background: var(--white); color: var(--deep); }
+.arrow::after { content: "→"; font-family: var(--sans); transition: transform .25s; }
+.btn:hover .arrow::after, .arrow:hover::after { transform: translateX(4px); }
+
+/* ---------- 상단 띠 ---------- */
+.topbar { background: var(--deep); color: #D8DCCF; font-size: 13.5px; letter-spacing: .04em; }
+.topbar .inner { display: flex; justify-content: space-between; height: 38px; align-items: center; }
+.topbar b { color: var(--oak-l); font-weight: 500; }
+
+/* ---------- 헤더 ---------- */
+#header { position: sticky; top: -38px; z-index: 100; }   /* 띠는 올라가고 메뉴만 고정 */
+.hd { height: 84px; background: var(--ivory); border-bottom: 1px solid var(--line); transition: box-shadow .3s; }
+.hd.scrolled { box-shadow: 0 6px 24px rgba(46, 42, 38, .06); }
+.hd-in { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+
+.logo { display: flex; flex-direction: column; line-height: 1.1; color: var(--deep); }
+.logo-en { font-family: var(--serif); font-size: 27px; font-weight: 500; letter-spacing: .32em; }
+.logo-ko { font-size: 12px; letter-spacing: .28em; color: var(--oak); margin-top: 3px; }
+
+.gnb ul { display: flex; }
+.gnb-item { position: relative; }
+.gnb-link { display: block; padding: 0 22px; line-height: 84px; font-size: 16.5px; font-weight: 400; letter-spacing: .02em; position: relative; }
+.gnb-link::after {
+  content: ""; position: absolute; left: 22px; right: 22px; bottom: 28px;
+  height: 1px; background: var(--ink); transform: scaleX(0); transition: transform .3s;
+}
+.gnb-item:hover .gnb-link::after, .gnb-item.on .gnb-link::after { transform: scaleX(1); }
+.gnb-item.on .gnb-link { font-weight: 500; }
+.gnb-item.point .gnb-link { color: var(--oak); }
+.gnb-item.point .gnb-link::after { background: var(--oak); }
+.gnb-item.point .gnb-link::before {
+  content: "FIT"; position: absolute; top: 18px; right: 6px; font-family: var(--serif);
+  font-size: 12px; letter-spacing: .1em; color: var(--oak); font-weight: 600;
+}
+
+.sub {
+  position: absolute; top: 84px; left: 50%; min-width: 190px;
+  transform: translate(-50%, 8px);
+  background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow); padding: 12px 0;
+  opacity: 0; visibility: hidden; transition: .2s;
+}
+.gnb-item.open .sub { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.sub a { display: block; padding: 9px 24px; font-size: 15px; color: var(--gray); white-space: nowrap; transition: .15s; }
+.sub a:hover { color: var(--ink); padding-left: 30px; }
+
+.util { display: flex; align-items: center; gap: 20px; font-size: 14.5px; color: var(--gray); }
+.util a:hover { color: var(--ink); }
+.util .hello { color: var(--ink); }
+.cart-link { position: relative; display: inline-flex; align-items: center; gap: 6px; color: var(--ink); }
+.cart-link svg { width: 20px; height: 20px; }
+.cart-badge {
+  position: absolute; top: -8px; right: -12px; min-width: 18px; height: 18px; padding: 0 5px;
+  border-radius: 9px; background: var(--oak); color: var(--white);
+  font-size: 12px; font-weight: 700; line-height: 18px; text-align: center;
+}
+
+/* ---------- 서브 페이지 상단 (사진 배너) ---------- */
+.page-head { position: relative; height: 300px; background: var(--deep) center / cover no-repeat; color: var(--white); }
+.page-head::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(36, 42, 32, .78) 0%, rgba(36, 42, 32, .45) 55%, rgba(36, 42, 32, .15) 100%); }
+.page-head .inner { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.crumb { font-size: 13.5px; letter-spacing: .06em; color: rgba(255, 255, 255, .7); margin-bottom: 14px; }
+.crumb span { margin: 0 6px; color: var(--oak-l); }
+.crumb a:hover { color: var(--white); }
+.page-head h1 { font-family: var(--serif-ko); font-size: 40px; font-weight: 500; letter-spacing: -.5px; }
+.page-desc { color: rgba(255, 255, 255, .78); margin-top: 8px; font-weight: 300; }
+.lnb-wrap { background: var(--white); border-bottom: 1px solid var(--line); }
+.lnb { display: flex; gap: 40px; height: 62px; align-items: stretch; }
+.lnb a { display: flex; align-items: center; font-size: 16px; color: var(--gray); border-bottom: 1px solid transparent; margin-bottom: -1px; transition: .2s; }
+.lnb a:hover { color: var(--ink); }
+.lnb a.on { color: var(--ink); border-bottom-color: var(--ink); font-weight: 500; }
+
+/* ---------- 섹션 제목 ---------- */
+.sec { padding: 120px 0 0; }
+.sec-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 44px; }
+.sec-head.center { flex-direction: column; align-items: center; text-align: center; }
+.sec-eyebrow { font-size: 13px; font-weight: 500; letter-spacing: .28em; color: var(--oak); text-transform: uppercase; }
+.sec-title { font-family: var(--serif-ko); font-size: 36px; font-weight: 500; letter-spacing: -.5px; line-height: 1.35; margin-top: 8px; }
+.sec-title em { font-family: var(--serif); font-style: italic; color: var(--oak); font-weight: 500; }
+.sec-more { font-size: 15px; color: var(--ink); letter-spacing: .04em; border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+.sec-more:hover { color: var(--oak); border-color: var(--oak); }
+
+/* ---------- 상품 카드 ---------- */
+.card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px 24px; }
+.card { position: relative; background: transparent; }
+.card-thumb {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 1 / 1.05; background: var(--stone); color: #9B7552; overflow: hidden;
+}
+.card-thumb::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 26%; background: linear-gradient(to top, rgba(176, 122, 74, .10), transparent); }
+.card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.card-thumb .shape { width: 58%; transition: transform .6s; }
+.card-thumb .shape g { stroke-width: 1.6; }
+.card:hover .card-thumb .shape, .card:hover .card-thumb img { transform: scale(1.05); }
+.card-dim {
+  position: absolute; left: 14px; top: 14px; z-index: 1; font-size: 12px; font-weight: 500;
+  color: var(--green); letter-spacing: .08em; background: rgba(255, 255, 255, .8); padding: 3px 8px;
+}
+.card-body { padding: 18px 2px 0; }
+.card-cat { font-size: 13px; color: var(--oak); letter-spacing: .12em; }
+.card-name { font-size: 17px; font-weight: 500; margin: 3px 0 4px; }
+.card-name a:hover { color: var(--oak); }
+.card-size { font-size: 16px; font-weight: 500; color: var(--green); letter-spacing: .02em; }
+.card-size span { font-size: 14px; font-weight: 400; color: var(--gray); }
+.card-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 6px; }
+.card-price { font-size: 17px; font-weight: 500; }
+.badge { font-size: 12.5px; font-weight: 500; color: var(--green); background: var(--green-l); padding: 2px 8px; letter-spacing: .04em; }
+.card-media { position: relative; }
+.btn-cart {
+  position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 2; height: 44px;
+  opacity: 0; transform: translateY(8px);
+  border: none; background: var(--deep); color: var(--white); font-size: 14.5px; letter-spacing: .06em; transition: .3s;
+}
+.card:hover .btn-cart, .btn-cart:focus-visible { opacity: 1; transform: translateY(0); }
+.btn-cart:hover { background: var(--oak); }
+
+/* ---------- 푸터 ---------- */
+.ft { background: var(--deep); color: #BFC5B5; margin-top: 140px; font-size: 14.5px; }
+.ft-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 50px; padding: 70px 0 56px; }
+.ft-logo { font-family: var(--serif); font-size: 30px; letter-spacing: .3em; color: var(--white); line-height: 1; }
+.ft-logo + p { font-size: 12.5px; letter-spacing: .28em; color: var(--oak-l); margin: 6px 0 22px; }
+.ft-brand > p:last-child { line-height: 1.8; }
+.ft-label { color: var(--white); font-size: 13px; letter-spacing: .24em; margin-bottom: 18px; }
+.ft-col a { display: block; padding: 3px 0; }
+.ft-col a:hover, .ft-bottom a:hover { color: var(--white); }
+.ft-tel { font-family: var(--serif); font-size: 34px; color: var(--oak-l); line-height: 1; margin-bottom: 10px; }
+.ft-bottom { border-top: 1px solid rgba(255, 255, 255, .1); }
+.ft-bottom .inner { display: flex; justify-content: space-between; padding: 22px 0; font-size: 13.5px; color: #98A08D; }
+.ft-bottom b { color: var(--white); font-weight: 500; }
+
+/* ---------- 알림 메시지 ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 40px; z-index: 400;
+  transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
+  background: var(--deep); color: var(--white); padding: 15px 30px; font-size: 15.5px; letter-spacing: .02em; transition: .3s;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- 프리텐다드 제목: 얇고 촘촘하게 ---------- */
+.sec-title, .page-head h1 { font-weight: 400; letter-spacing: -.025em; }
+.sec-title b, .page-head h1 b { font-weight: 600; }
+.sec-title em { font-family: var(--sans); font-style: normal; font-weight: 500; }
+
+/* ---------- 가독성 ---------- */
+.gnb-link { font-weight: 500; }
+.util { color: var(--ink); }
+.card-name { font-weight: 600; }
+.card-size { font-weight: 600; }
+.card-price { font-weight: 700; }
+.page-desc { font-weight: 400; color: rgba(255, 255, 255, .9); }
+.crumb { color: rgba(255, 255, 255, .85); }
+.sub a { color: #4A443E; }
+.ft { color: #D3D8CB; }
+.ft-bottom .inner { color: #B5BCAA; }
+input::placeholder, textarea::placeholder { color: #A39A90; }
+
+/* 상품 사진이 있을 때는 아래 그라데이션 빼기 */
+.card-thumb:has(img)::after { display: none; }
+
+/* 장바구니 버튼: 마우스를 올리지 않아도 보이게 (카드 아래쪽 얇은 버튼) */
+.btn-cart { position: static; width: 100%; height: 42px; margin-top: 12px; opacity: 1; transform: none; background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.card:hover .btn-cart { background: var(--deep); color: var(--white); border-color: var(--deep); }
+.btn-cart:hover { background: var(--oak) !important; border-color: var(--oak) !important; }
+
+/* 화살표 간격 (모든 페이지) */
+.arrow::after { margin-left: 8px; }
+
+/* 상품 사진 톤 맞추기: 출처가 다른 사진들의 색감을 살짝 따뜻하고 차분하게 통일 */
+.card-thumb img, .dt-thumb img, .fi-thumb img, .si-thumb img, .ct-thumb img, .cat-circle img, .rv-thumb img, .mini img, .ph-img img, .rv-photo img {
+  filter: saturate(.88) sepia(.08) brightness(1.02) contrast(.97);
+}

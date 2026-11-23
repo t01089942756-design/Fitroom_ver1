@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>전체 상품 | 핏룸 Fit Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-title="전체 상품" data-desc="치수와 가격으로 가구를 둘러보세요.">
+
+  <!-- 헤더 · 네비게이션 (common.js가 채움) -->
+  <div id="header"></div>
+
+  <main>
+    <!-- 페이지 제목 · 위치 · 2차 메뉴 탭 (common.js가 채움) -->
+    <div id="pageHead"></div>
+
+    <section class="inner sub-wrap shop">
+
+      <!-- 왼쪽 필터 -->
+      <aside class="filter">
+        <div class="f-group">
+          <p class="f-title">내 공간에 맞추기</p>
+          <p class="f-help">입력하면 들어가는 가구만 남아요</p>
+          <div class="f-size">
+            <label>가로<input type="number" id="fW" placeholder="cm" min="1"></label>
+            <label>세로<input type="number" id="fD" placeholder="cm" min="1"></label>
+            <label>높이<input type="number" id="fH" placeholder="cm" min="1"></label>
+          </div>
+          <button type="button" class="link-btn" id="loadRoom" hidden>저장한 내 방 치수 불러오기</button>
+        </div>
+        <div class="f-group">
+          <p class="f-title">가격</p>
+          <label class="radio"><input type="radio" name="price" value="all" checked><span>전체</span></label>
+          <label class="radio"><input type="radio" name="price" value="0-50000"><span>5만 원 이하</span></label>
+          <label class="radio"><input type="radio" name="price" value="50000-100000"><span>5만 ~ 10만 원</span></label>
+          <label class="radio"><input type="radio" name="price" value="100000-200000"><span>10만 ~ 20만 원</span></label>
+          <label class="radio"><input type="radio" name="price" value="200000-99999999"><span>20만 원 이상</span></label>
+        </div>
+        <div class="f-group">
+          <p class="f-title">옵션</p>
+          <label class="check"><input type="checkbox" id="fMove"><span>이사 친화 가구만</span></label>
+          <label class="check"><input type="checkbox" id="fNoAsm"><span>조립 없이 바로 쓰는 가구</span></label>
+        </div>
+        <button type="button" class="btn btn-line btn-sm full" id="fReset">필터 초기화</button>
+      </aside>
+
+      <!-- 오른쪽 상품 목록 -->
+      <div class="shop-main">
+        <div class="toolbar">
+          <p>총 <b id="count">0</b>개 상품</p>
+          <select id="sort" class="select select-sm">
+            <option value="rec">추천순</option>
+            <option value="low">낮은 가격순</option>
+            <option value="high">높은 가격순</option>
+            <option value="small">작은 크기순</option>
+            <option value="light">가벼운 순</option>
+          </select>
+        </div>
+        <div class="card-grid g3" id="list"></div>
+        <div class="empty" id="empty" hidden>
+          <p class="empty-title">조건에 맞는 가구가 없어요</p>
+          <p>공간 치수를 조금 넓히거나 필터를 줄여 보세요.</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- 푸터 (common.js가 채움) -->
+  <div id="footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

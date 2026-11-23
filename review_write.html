@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>리뷰 쓰기 | 핏룸 Fit Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-title="리뷰 쓰기" data-desc="내 방 크기와 함께 후기를 남겨 주세요." data-mode="write">
+
+  <!-- 헤더 · 네비게이션 (common.js가 채움) -->
+  <div id="header"></div>
+
+  <main>
+    <!-- 페이지 제목 · 위치 · 2차 메뉴 탭 (common.js가 채움) -->
+    <div id="pageHead"></div>
+
+    <section class="inner sub-wrap narrow">
+      <form id="rwForm" class="form-card" novalidate>
+
+        <div class="field">
+          <label class="label" for="rwProduct">상품 <em>*</em></label>
+          <select id="rwProduct" class="select"></select>
+        </div>
+
+        <div class="field">
+          <span class="label">별점 <em>*</em></span>
+          <div class="star-input" id="rwStars">
+            <button type="button" data-v="1">★</button><button type="button" data-v="2">★</button><button type="button" data-v="3">★</button><button type="button" data-v="4">★</button><button type="button" data-v="5">★</button>
+            <span id="rwStarTxt">별을 눌러 주세요</span>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="label" for="rwType">우리 집 구조 <em>*</em></label>
+            <select id="rwType" class="select">
+              <option value="">선택해 주세요</option>
+              <option value="oneroom">원룸</option>
+              <option value="officetel">오피스텔</option>
+              <option value="tworoom">투룸</option>
+            </select>
+          </div>
+          <div class="field">
+            <span class="label">방 크기 <em>*</em></span>
+            <div class="size-in">
+              <div class="unit"><input type="number" id="rwW" class="input" placeholder="가로"><i>cm</i></div>
+              <span>×</span>
+              <div class="unit"><input type="number" id="rwD" class="input" placeholder="세로"><i>cm</i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label" for="rwText">후기 <em>*</em></label>
+          <textarea id="rwText" class="textarea" rows="6" maxlength="300" placeholder="크기는 잘 맞았는지, 남는 공간은 어땠는지 알려 주세요. (10자 이상)"></textarea>
+          <p class="counter"><span id="rwCount">0</span> / 300</p>
+        </div>
+
+        <div class="field">
+          <span class="label">사진 <small>선택</small></span>
+          <div class="upload">
+            <label class="upload-btn">사진 고르기<input type="file" id="rwFile" accept="image/*" hidden></label>
+            <div class="upload-pre" id="rwPreview" hidden></div>
+            <button type="button" class="link-btn" id="rwRemove" hidden>사진 빼기</button>
+          </div>
+        </div>
+
+        <p class="form-err" id="rwErr"></p>
+        <div class="form-btns">
+          <a href="review.html" class="btn btn-line">취소</a>
+          <button type="submit" class="btn btn-oak">리뷰 등록</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- 푸터 (common.js가 채움) -->
+  <div id="footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/review.js"></script>
+</body>
+</html>

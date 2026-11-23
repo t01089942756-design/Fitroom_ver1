@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>방명록 쓰기 | 핏룸 Fit Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-title="방명록 쓰기" data-desc="응원, 바라는 점, 내 방 자랑 모두 좋아요." data-mode="write">
+
+  <!-- 헤더 · 네비게이션 (common.js가 채움) -->
+  <div id="header"></div>
+
+  <main>
+    <!-- 페이지 제목 · 위치 · 2차 메뉴 탭 (common.js가 채움) -->
+    <div id="pageHead"></div>
+
+    <section class="inner sub-wrap narrow">
+      <form id="gbForm" class="form-card" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label class="label" for="gbName">닉네임 <em>*</em></label>
+            <input type="text" id="gbName" class="input" maxlength="10" placeholder="2~10자">
+          </div>
+          <div class="field">
+            <label class="label" for="gbPw">비밀번호 <em>*</em></label>
+            <input type="password" id="gbPw" class="input" maxlength="4" inputmode="numeric" placeholder="숫자 4자리 (삭제할 때 필요)">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="gbText">내용 <em>*</em></label>
+          <textarea id="gbText" class="textarea" rows="5" maxlength="200" placeholder="핏룸에 바라는 점, 내 방 자랑, 응원 한마디 모두 좋아요."></textarea>
+          <p class="counter"><span id="gbLen">0</span> / 200</p>
+        </div>
+        <div class="gb-emoji" id="gbEmoji">
+          <span class="label">빠른 입력</span>
+          <button type="button">이런 사이트 기다렸어요!</button>
+          <button type="button">핏 체크 덕분에 실패 안 했어요</button>
+          <button type="button">상품이 더 많아지면 좋겠어요</button>
+        </div>
+        <p class="form-err" id="gbErr"></p>
+        <div class="form-btns">
+          <a href="guestbook.html" class="btn btn-line">목록으로</a>
+          <button type="submit" class="btn btn-oak">등록하기</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- 푸터 (common.js가 채움) -->
+  <div id="footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/guestbook.js"></script>
+</body>
+</html>

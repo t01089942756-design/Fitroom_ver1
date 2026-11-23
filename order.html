@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>주문하기 | 핏룸 Fit Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-title="주문하기" data-desc="" data-mode="order">
+
+  <!-- 헤더 · 네비게이션 (common.js가 채움) -->
+  <div id="header"></div>
+
+  <main>
+    <!-- 페이지 제목 · 위치 · 2차 메뉴 탭 (common.js가 채움) -->
+    <div id="pageHead"></div>
+
+    <section class="inner sub-wrap">
+      <form id="orderForm" class="cart-layout" novalidate>
+        <div class="cart-main">
+          <!-- 주문 상품 -->
+          <div class="od-sec">
+            <h2 class="h-sub">주문 상품 <span class="muted" id="odCount"></span></h2>
+            <ul class="od-items" id="odItems"></ul>
+          </div>
+
+          <!-- 배송지 -->
+          <div class="od-sec">
+            <div class="h-row">
+              <h2 class="h-sub">배송지</h2>
+              <label class="check"><input type="checkbox" id="odSame" checked><span>회원 정보와 같아요</span></label>
+            </div>
+            <div class="field-row">
+              <div class="field"><label class="label" for="odName">받는 분 <em>*</em></label><input type="text" id="odName" class="input"></div>
+              <div class="field"><label class="label" for="odPhone">연락처 <em>*</em></label><input type="tel" id="odPhone" class="input" maxlength="13" placeholder="010-0000-0000"></div>
+            </div>
+            <div class="field">
+              <label class="label" for="odAddr">주소 <em>*</em></label>
+              <div class="in-btn">
+                <input type="text" id="odZip" class="input zip" maxlength="5" placeholder="우편번호">
+                <input type="text" id="odAddr" class="input" placeholder="도로명 주소">
+              </div>
+              <input type="text" id="odAddr2" class="input mt8" placeholder="상세 주소 (동, 호수)">
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <span class="label">엘리베이터 <em>*</em></span>
+                <div class="radio-row">
+                  <label class="radio"><input type="radio" name="odLift" value="있음" checked><span>있어요</span></label>
+                  <label class="radio"><input type="radio" name="odLift" value="없음"><span>없어요</span></label>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label" for="odMemo">배송 요청</label>
+                <select id="odMemo" class="select">
+                  <option>문 앞에 놓아 주세요</option>
+                  <option>설치 전에 미리 연락 주세요</option>
+                  <option>경비실에 맡겨 주세요</option>
+                  <option>부재 시 연락 주세요</option>
+                </select>
+              </div>
+            </div>
+            <p class="note-inline" id="odLiftNote" hidden>엘리베이터가 없는 3층 이상 건물은 대형 가구 운반비가 추가될 수 있어요. 배송 전에 연락드릴게요.</p>
+          </div>
+
+          <!-- 결제 수단 -->
+          <div class="od-sec">
+            <h2 class="h-sub">결제 수단</h2>
+            <div class="pay-opts">
+              <label class="pay"><input type="radio" name="odPay" value="신용카드" checked><span>신용카드</span></label>
+              <label class="pay"><input type="radio" name="odPay" value="계좌이체"><span>계좌이체</span></label>
+              <label class="pay"><input type="radio" name="odPay" value="무통장입금"><span>무통장입금</span></label>
+              <label class="pay"><input type="radio" name="odPay" value="간편결제"><span>간편결제</span></label>
+            </div>
+            <p class="muted small">과제용 사이트라 실제로 결제되지 않아요.</p>
+          </div>
+        </div>
+
+        <!-- 결제 금액 -->
+        <aside class="summary" id="odSummary"></aside>
+      </form>
+
+      <!-- 주문 완료 -->
+      <div class="auth-card done" id="odDone" hidden>
+        <div class="done-ico">✓</div>
+        <h2>주문이 완료되었어요</h2>
+        <p class="muted">주문 번호 <b id="odNo"></b></p>
+        <p class="muted">결제 후 3~5일 안에 도착해요. 대형 가구는 설치 기사님이 미리 연락드려요.</p>
+        <div class="form-btns center">
+          <a href="mypage.html#orders" class="btn btn-oak">주문 내역 보기</a>
+          <a href="shop.html" class="btn btn-line">쇼핑 계속하기</a>
+        </div>
+      </div>
+
+      <div class="empty" id="odEmpty" hidden>
+        <p class="empty-title">주문할 상품이 없어요</p>
+        <a href="cart.html" class="btn btn-line">장바구니로 가기</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 (common.js가 채움) -->
+  <div id="footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
